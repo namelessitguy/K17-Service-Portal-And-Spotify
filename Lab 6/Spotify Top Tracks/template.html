@@ -1,10 +1,18 @@
-<div>
-  <h2 class="h1">{{c.data.artist.name}}</h2>
-  <div ng-repeat="track in c.data.topTracks track by $index">
-    <h3>{{track.name}}</h3>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h1>
+    Artist:  {{c.data.artist.name}}
+    </h1></div>
+  <div class="panel-body">
+    <p>...</p>
+  </div>
+<div class="list-group">
+  <div ng-repeat="track in c.data.topTracks track by $index" class="list-group-item">
+    <h3 class="list-group-item-heading">{{track.name}}</h3>
     <button class="btn btn-link" ng-click="c.openTrackPlayer($index)">Play</button>
     <div ng-if="track.selected">
       <k17-spotify-player song="track.uri"></k17-spotify-player>
     </div>
   </div>
+</div>
 </div>
